@@ -45,9 +45,9 @@ theList = List.flatten(theListOriginal) # 把 List 打平
 
 # 检查是否大于等于 50m 的函数
 is_50m_plus = fn (fname) ->
-  s = File.stat(fname)
-  t = elem(s, 1)
-  m = Map.from_struct(t)
+  m = File.stat(fname)
+        |> elem(1)
+        |> Map.from_struct
   sizeToMB = m[:size]/1024/1024
   sizeToMB >= 50
 end
