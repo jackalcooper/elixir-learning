@@ -1,3 +1,5 @@
+# 找出给定目录中 50MB 及以上的所有文件（含所有子目录），存入列表，并打印该列表。
+
 # 获取目录的路径
 
 theFolder = String.trim_trailing (
