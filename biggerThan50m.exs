@@ -3,7 +3,7 @@
 # 获取目录的路径
 
 theFolder = String.trim_trailing (
-  IO.gets "This program will help you find the paths of all the files bigger than 50MB in a specific folder. Please input the path of the folder.\n" # 输入目录路径
+  IO.gets "This program will help you find the paths of all the files ≥ 50MB in a specific folder. Please input the path of the folder.\n" # 输入目录路径
 ) # 删掉路径后面的换行符
 
 # 检查目录路径是否有效, 若无效则重新输入
