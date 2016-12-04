@@ -15,4 +15,18 @@ orders = [ [ id: 123, ship_to: :NC, net_amount: 100.00 ],
 
 # Write a function that takes both lists and returns a copy of the orders, but with an extra field, total_amount, which is the net plus sales tax. If a shipment is not to NC or TX, there’s no tax applied.
 
-# 此题稍后完成。
+defmodule Tax do
+  def add_tax_to(order = [ id: _, ship_to: state, net_amount: net], tax_rates) do
+    tax_rate = tax_rates[state]
+    if tax_rate do
+      total = (1 + tax_rate) * net
+    else
+      total = net
+    end
+    order ++ [total_amount: total]
+  end
+end
+
+Enum.map(orders, &Tax.add_tax_to(&1, tax_rates))
+
+# 感觉不够优雅。
