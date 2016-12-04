@@ -1,6 +1,7 @@
 # This is an exercise to implement the List.flatten function.
 
-# 1st version: it doesn't work, because I use an old function in a guard clause.
+# 1st version: it doesn't work, because I use an old function in a guard clause. I may fix this bug with some macro later.
+
 defmodule MyList do
   def exist_list([]), do: false
   def exist_list([ head | tail ]) do
