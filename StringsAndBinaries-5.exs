@@ -2,11 +2,12 @@
 
 defmodule MyString do
 
-  def center([]), do: :ok
-  def center([ head | tail ]) do
-    line_width = line_width([ head | tail ])
-    IO.puts("#{String.duplicate(" ", div(line_width - String.length(head), 2))}" <> head)
-    center(tail)
+  def center(list) do
+    Enum.each(list, &center_dqs(&1, line_width(list)))
+  end
+
+  defp center_dqs(str, line_width) do
+    "#{String.duplicate(" ", div(line_width - String.length(str), 2))}" <> str |> IO.puts
   end
 
   defp line_width([]), do: 0
