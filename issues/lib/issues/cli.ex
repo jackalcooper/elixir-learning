@@ -16,6 +16,8 @@ defmodule Issues.CLI do
   table of the last _n_ issues in a github project
   """
 
+  import Issues.TableFormatter, only: [ print_table_for_columns: 2 ]
+
   def run(argv) do
     argv
     |> parse_args
