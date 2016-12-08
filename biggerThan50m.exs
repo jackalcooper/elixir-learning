@@ -17,14 +17,14 @@ end
 
 defmodule WalkDirectory do
 
-  def the_file_list(theFolder) do
+  defp _the_file_list(theFolder) do
     File.ls(theFolder)
       |> elem(1)
       |> Enum.map(&Path.join(["#{theFolder}", "#{&1}"]))
   end
 
   def the_file_path_list(theFolder) do
-    the_file_list(theFolder)
+    _the_file_list(theFolder)
       |> Enum.map(
           fn fname ->
             case File.dir?(fname) do
@@ -42,7 +42,7 @@ end
 # 检查是否大于等于 50m 的函数
 
 defmodule CheckSize do
-  def is_50m_plus do
+  def is_50m_plus(fname) do
     m = File.stat(fname)
         |> elem(1)
         |> Map.from_struct()
