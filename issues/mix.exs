@@ -6,6 +6,8 @@ defmodule Issues.Mixfile do
      escript: escript_config,
      version: "0.1.0",
      elixir: "~> 1.3",
+     name: "Issues",
+     source_url: "https://github.com/haohailong/elixir-learning/tree/master/issues",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps()]
@@ -30,7 +32,9 @@ defmodule Issues.Mixfile do
   defp deps do
     [
       {:httpoison, "~> 0.10.0"},
-      {:poison, "~> 3.0"}
+      {:poison, "~> 3.0"},
+      {:ex_doc, "~> 0.14.5"},
+      {:earmark, "~> 1.0", override: true}
     ]
   end
 
